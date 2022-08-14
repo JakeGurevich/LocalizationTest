@@ -1,0 +1,27 @@
+﻿<Window x:Class="LocalizationDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LocalizationDemo"
+         xmlns:lex="http://wpflocalizeextension.codeplex.com"
+          lex:ResxLocalizationProvider.DefaultAssembly="EyeSwift.Localization.Pages"
+          lex:ResxLocalizationProvider.DefaultDictionary="EyeSwift.Localization.Pages.Data"
+          lex:LocalizeDictionary.DesignCulture="en"
+          lex:LocalizeDictionary.OutputMissingKeys="True"
+        
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="127*"/>
+            <RowDefinition Height="307*"/>
+        </Grid.RowDefinitions>
+        <Button Content="{lex:Loc ACT}" Tag="{lex:Loc Visit_Date}" HorizontalAlignment="Left" Margin="115,116,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Click="Button_Click"/>
+
+
+        <ComboBox ItemsSource="{Binding Source={x:Static lex:LocalizeDictionary.Instance}, Path=MergedAvailableCultures}" HorizontalAlignment="Center" VerticalAlignment="Center"
+          SelectedItem="{Binding Source={x:Static lex:LocalizeDictionary.Instance}, Path=Culture}" DisplayMemberPath="NativeName" />
+
+    </Grid>
+</Window>
